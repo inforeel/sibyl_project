@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141107000202) do
+ActiveRecord::Schema.define(version: 20141107004958) do
 
   create_table "requests", force: true do |t|
     t.text     "title"
     t.text     "question"
     t.text     "due_date"
-    t.text     "user_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
