@@ -30,7 +30,6 @@ gem 'spring',        group: :development
 
 gem 'pg', group: :production
 gem 'rails_12factor', group: :production
-gem "simple_calendar", "~> 1.1.0"
 
 
 # Use ActiveModel has_secure_password
