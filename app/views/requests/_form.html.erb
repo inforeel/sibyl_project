@@ -12,22 +12,16 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_area :title %>
-  </div>
-  <div class="field">
-    <%= f.label :question %><br>
+    <%= f.label :question, "What is your question?" %><br>
     <%= f.text_area :question %>
   </div>
+
   <div class="field">
-    <%= f.label :due_date %><br>
+    <%= f.label :due_date, "When do you need your answer?" %><br>
     <%= f.text_area :due_date %>
   </div>
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.text_area :user_id %>
-  </div>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Submit Your Question" %>
   </div>
 <% end %>

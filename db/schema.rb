@@ -11,10 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141107023343) do
+ActiveRecord::Schema.define(version: 20141119015520) do
 
   create_table "requests", force: true do |t|
-    t.text     "title"
     t.text     "question"
     t.text     "due_date"
     t.integer  "user_id"
