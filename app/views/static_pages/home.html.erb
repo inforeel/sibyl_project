@@ -1,2 +1,13 @@
-<h1>Homepage</h1>
+<% if user_signed_in? %>
+  <%= "Welcome, #{current_user.email}" %>
+<% end %>
+<div>
+	<%= link_to 'Ask a new question', new_request_path %>
+</div>
 
+<div>
+	<%= link_to 'See your question history', requests_path %>
+</div>
+
+<div>
+	<h5>Do your own research with Wolfram Alpha</h5>
