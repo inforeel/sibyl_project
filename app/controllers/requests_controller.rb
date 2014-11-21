@@ -4,8 +4,12 @@ class RequestsController < ApplicationController
   # GET /requests
   # GET /requests.json
   def index
+    if current_user.admin == true
     @requests = Request.all
+    else 
+    @requests = current_user.requests
   end
+end
 
   # GET /requests/1
   # GET /requests/1.json
@@ -25,10 +29,10 @@ class RequestsController < ApplicationController
   # POST /requests.json
   def create
     @request = Request.new(request_params)
-    @request.user_id = current_user
+    @request.user_id = current_user.id
     respond_to do |format|
       if @request.save
-        format.html { redirect_to @request, notice: 'Request was successfully created.' }
+        format.html { redirect_to @request, notice: 'Thanks! We got it.' }
         format.json { render :show, status: :created, location: @request }
       else
         format.html { render :new }
@@ -69,6 +73,6 @@ class RequestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def request_params
-      params.require(:request).permit(:title, :question, :due_date)
+      params.require(:request).permit(:question, :due_date)
     end
 end
