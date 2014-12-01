@@ -2,19 +2,27 @@
 <html>
 <head>
   <title>Ask an Info Pro</title>
+  <%= favicon_link_tag 'favicon.ico' %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
+<nav class="navbar navbar-inverse" role="navigation">
+<ul class="nav navbar-nav">
 <% if user_signed_in? %>
-  <%= link_to "Settings", edit_user_registration_path %>
-  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
+  <li class="<% is_active?('/') %>"><%= link_to "Home", '/' %></li>
+  <!-- Not sure what I'm doing wrong on line 15, can't get the active link to show up as highlighted unless I do it manually. Following example here: http://stackoverflow.com/questions/17481812/dynamically-add-active-class-to-bootstrap-li-in-rails -->
+  <li><%= link_to "Questions", requests_path %></li>
+  <li><%= link_to "Settings", edit_user_registration_path %></li>
+  <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>        
 <% else %>
-	<%= link_to "Sign up", new_user_registration_path %>
-  <%= link_to('Login', new_user_session_path)  %>  
+	<li><%= link_to "Sign up", new_user_registration_path %></li>
+  <li><%= link_to('Login', new_user_session_path)  %></li>  
 <% end %>
+</ul>
+</nav>
 
 <div class="container">
  <p class="notice"><%= notice %></p>

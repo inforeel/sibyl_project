@@ -37,6 +37,9 @@
 </table>
 
 <br>
-
-<%= link_to 'New Request', new_request_path %>
+<% if current_user.admin? %>
+  <%= link_to 'Enter your own request', new_request_path %>
+<% else %>
+  <%= link_to 'New Request', new_request_path %>
+<% end %>
 </div>

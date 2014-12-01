@@ -12,12 +12,8 @@
 <div>
 	<%= link_to 'See your question history', requests_path %>
 </div>
-
-<div>
-	<h5>Do your own research with Wolfram Alpha</h5>
-</div>
 	<% end %>
-	
+
 <% else %>
   <%= link_to "You're new around here, you should sign up", new_user_registration_path %>
 <% end %>
