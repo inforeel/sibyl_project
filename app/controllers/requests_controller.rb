@@ -6,6 +6,7 @@ class RequestsController < ApplicationController
   def index
     if current_user.admin == true
     @requests = Request.all
+    @is_admin = true
     else 
     @requests = current_user.requests
   end
