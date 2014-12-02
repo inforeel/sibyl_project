@@ -13,6 +13,7 @@
       <th>Due date</th>
       <th>Answer</th>
       <% if current_user.admin? %>
+      <th>Username</th>
       <th>User ID</th>
       <th>Show Question</th> 
       <th>Edit Question</th>
@@ -28,6 +29,7 @@
         <td><%= request.due_date %></td>
         <td><%= request.answer %></td>
         <% if current_user.admin? %>
+        <td><%= request.user.username %>
         <td><%= request.user_id %></td>
         <td><%= link_to '[x]', request %></td> 
         <td><%= link_to '[x]', edit_request_path(request) %></td>
