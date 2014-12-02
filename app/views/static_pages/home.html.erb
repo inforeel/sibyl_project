@@ -1,19 +1,32 @@
-
+<div class="panel panel-default">
 <% if user_signed_in? %>
+<div class="panel-heading">
   <%= "Welcome, #{current_user.username}" %>
+</div>
 
+<div class="panel-body">
 <div>
 	 <% if current_user.admin? %>
-	 	<%= link_to 'See all user questions', requests_path %>
+	 	<li><%= link_to 'See all user questions', requests_path %></li>
+	 	<li><a href="http://www.google.com">Google</a></li>
 	 <% else %>	
 	<%= link_to 'Ask a new question', new_request_path %>
 </div>
 
 <div>
 	<%= link_to 'See your question history', requests_path %>
+
 </div>
 	<% end %>
 
 <% else %>
-  <%= link_to "You're new around here, you should sign up", new_user_registration_path %>
+<div class="alert alert-danger" role="alert">
+	<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+  <span class="sr-only">Error:</span>
+  You're new around here, you should sign up!
+  <div>
+  <%= link_to "Sign up", new_user_registration_path %>
+</div>
+</div>
 <% end %>
+</div>

@@ -12,12 +12,14 @@
 <nav class="navbar navbar-inverse" role="navigation">
 <ul class="nav navbar-nav">
 <% if user_signed_in? %>
+ <a class="navbar-brand">Ask an Info Pro</a>
   <li class="<% is_active?('/') %>"><%= link_to "Home", '/' %></li>
   <!-- Not sure what I'm doing wrong on line 15, can't get the active link to show up as highlighted unless I do it manually. Following example here: http://stackoverflow.com/questions/17481812/dynamically-add-active-class-to-bootstrap-li-in-rails -->
   <li><%= link_to "Questions", requests_path %></li>
-  <li><%= link_to "Settings", edit_user_registration_path %></li>
+  <li><%= link_to "Profile", edit_user_registration_path %></li>
   <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>        
 <% else %>
+ <a class="navbar-brand">Ask an Info Pro</a>
 	<li><%= link_to "Sign up", new_user_registration_path %></li>
   <li><%= link_to('Login', new_user_session_path)  %></li>  
 <% end %>

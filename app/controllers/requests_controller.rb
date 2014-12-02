@@ -6,7 +6,6 @@ class RequestsController < ApplicationController
   def index
     if current_user.admin == true
     @requests = Request.all
-    @is_admin = true
     else 
     @requests = current_user.requests
   end
@@ -33,7 +32,7 @@ end
     @request.user_id = current_user.id
     respond_to do |format|
       if @request.save
-        format.html { redirect_to @request, notice: 'Thanks! We got it.' }
+        format.html { redirect_to @request, notice: 'Thanks! Your request has been received.' }
         format.json { render :show, status: :created, location: @request }
       else
         format.html { render :new }

@@ -1,4 +1,4 @@
-<div class="panel panel-info">
+<div class="panel panel-default">
 <% if current_user.admin? %>
   <div class="panel-heading">All Requests</div>
 <% else %>
@@ -11,12 +11,13 @@
     <tr>
       <th>Question</th>
       <th>Due date</th>
+      <th>Answer</th>
       <% if current_user.admin? %>
       <th>User ID</th>
-      <% end %>
-      <th>Show Question</th>
+      <th>Show Question</th> 
       <th>Edit Question</th>
       <th>Delete Question</th>
+      <% end %>
     </tr>
   </thead>
 
@@ -25,12 +26,13 @@
       <tr>
         <td><%= request.question %></td>
         <td><%= request.due_date %></td>
+        <td><%= request.answer %></td>
         <% if current_user.admin? %>
         <td><%= request.user_id %></td>
-        <% end %>
-        <td><%= link_to '[x]', request %></td>
+        <td><%= link_to '[x]', request %></td> 
         <td><%= link_to '[x]', edit_request_path(request) %></td>
         <td><%= link_to '[x]', request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+     <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -38,8 +40,8 @@
 
 <br>
 <% if current_user.admin? %>
-  <%= link_to 'Enter your own request', new_request_path %>
+  <%= link_to 'Enter your own question', new_request_path %>
 <% else %>
-  <%= link_to 'New Request', new_request_path %>
+  <%= link_to 'Ask another question', new_request_path %>
 <% end %>
 </div>
