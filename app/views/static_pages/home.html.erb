@@ -10,20 +10,17 @@
 	 	<li><%= link_to 'See all user questions', requests_path %></li>
 	 	<li><a href="http://www.google.com">Google</a></li>
 	 <% else %>	
-	<%= link_to 'Ask a new question', new_request_path %>
+	<li><%= link_to 'Ask a new question', new_request_path %></li>
+	<li><%= link_to 'See your question history', requests_path %></li>
 </div>
 
-<div>
-	<%= link_to 'See your question history', requests_path %>
-
-</div>
 	<% end %>
 
 <% else %>
 <div class="alert alert-danger" role="alert">
 	<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
   <span class="sr-only">Error:</span>
-  You're new around here, you should sign up!
+  You're new around here, you should sign up or login!
   <div>
   <%= link_to "Sign up", new_user_registration_path %>
 </div>

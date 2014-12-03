@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= f.label :due_date, "When do you need your answer?" %><br>
-    <%= f.text_area :due_date, placeholder:"mm/dd/yy" %>
+    <%= f.date_field :due_date %>
   </div>
 
 <% if current_user.admin?%>
@@ -27,7 +27,8 @@
     <%= f.text_area :answer %>
   </div>
 <% end %>
-
+<br>
+  <div>
   <div class="actions">
     <%= f.submit "Submit Your Question" %>
   </div>
