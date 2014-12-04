@@ -6,11 +6,12 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Machine name</th>
+      <% if current_user.admin? %>
       <th>Internal URL</th>
       <th>Show List</th> 
       <th>Edit List</th>
       <th>Delete List</th>
+      <% end%>
     </tr>
   </thead>
 
@@ -18,17 +19,20 @@
     <% @lists.each do |list| %>
       <tr>
         <td><%= list.name %></td>
-        <td><%= list.machine_name %></td>
+         <% if current_user.admin? %>
         <td><%= list.internal_url %></td>
         <td><%= link_to 'Show', list %></td>
         <td><%= link_to 'Edit', edit_list_path(list) %></td>
         <td><%= link_to 'Destroy', list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-    <% end %>
   </tbody>
+    <% end%>
+    <% end %>
 </table>
 
 <br>
-
-<%= link_to 'New List', new_list_path %>
+  <% if current_user.admin? %>
+<%= link_to 'New List', new_list_path %> |
+<% end %> |
+<%= link_to 'Home', root_path %>
 </div>
