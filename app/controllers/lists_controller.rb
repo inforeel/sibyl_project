@@ -1,4 +1,5 @@
 class ListsController < ApplicationController
+  respond_to :html, :xml, :json
   before_action :set_list, only: [:show, :edit, :update, :destroy]
 
   def index

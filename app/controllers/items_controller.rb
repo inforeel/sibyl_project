@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  respond_to :html, :xml, :json
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
