@@ -8,7 +8,6 @@
 <div>
 	 <% if current_user.admin? %>
 	 	<li><%= link_to 'See all user questions', requests_path %></li>
-	 	<li><a href="http://www.google.com">Google</a></li>
 	 <% else %>	
 	<li><%= link_to 'Ask a new question', new_request_path %></li>
 	<li><%= link_to 'See your question history', requests_path %></li>
