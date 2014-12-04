@@ -9,6 +9,7 @@ class ItemsController < ApplicationController
 
   def show
     respond_with(@item)
+    @item = @list.items.find(params[:id])
   end
 
   def new
@@ -41,6 +42,6 @@ class ItemsController < ApplicationController
     end
 
     def item_params
-      params.require(:item).permit(:name, :machine_name, :list, :description, :url)
+      params.require(:item).permit(:name, :machine_name, :list, :description, :url, :list_id)
     end
 end
