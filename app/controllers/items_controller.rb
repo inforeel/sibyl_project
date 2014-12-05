@@ -29,9 +29,7 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @list = List.find(params[:list_id])
     @item = Item.new(item_params)
-    @item.list_id = @list.id 
     respond_with([@list, @item])
     #@item = @list.items.new(params[:item])
     
